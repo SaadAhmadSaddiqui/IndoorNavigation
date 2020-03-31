@@ -90,6 +90,7 @@ public class ImageRecognition : MonoBehaviour
             if (child.name.Equals(text))
             {
                 person.transform.position = child.position;
+                Camera.main.transform.parent.transform.rotation = child.rotation;
                 break;
             }
         }
