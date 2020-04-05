@@ -7,20 +7,20 @@ public class SoundController : MonoBehaviour
 {
     public GameObject cameraTarget;
     public NavigationController NavCon;
-    public Transform Target;
+    //public Transform Target;
     public Text text;
-    private bool goStraight = false;
-    private bool fiveFeetLeft = false;
-    private bool tenFeetLeft = false;
-    private bool turnLeft = false;
-    private bool goStraight2 = false;
-    private bool destinationLeft = false;
-    private bool turnLeftStraight = false;
-    private bool turnRightFive = false;
-    private bool turnRight = false;
-    private bool goStraight3 = false;
-    private bool destinationTen = false;
-    private bool destinationRight = false;
+    //private bool goStraight = false;
+    //private bool fiveFeetLeft = false;
+    //private bool tenFeetLeft = false;
+    //private bool turnLeft = false;
+    //private bool goStraight2 = false;
+    //private bool destinationLeft = false;
+    //private bool turnLeftStraight = false;
+    //private bool turnRightFive = false;
+    //private bool turnRight = false;
+    //private bool goStraight3 = false;
+    //private bool destinationTen = false;
+    //private bool destinationRight = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class SoundController : MonoBehaviour
     void Update()
     {
         
-        Target = NavCon.target;
+        //Target = NavCon.target;
 
         if (Vector3.Distance(cameraTarget.transform.position, NavCon.target.position) < 1f)
         {
