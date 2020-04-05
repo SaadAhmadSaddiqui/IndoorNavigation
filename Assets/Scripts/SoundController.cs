@@ -35,6 +35,8 @@ public class SoundController : MonoBehaviour
         if (Vector3.Distance(cameraTarget.transform.position, NavCon.target.position) < 1f)
         {
             text.text = "Reached Destination!";
+            FindObjectOfType<AudioManager>().Play("reached");
+
         }
         //if (cameraTarget.transform.position.z >= 7.5f && cameraTarget.transform.position.z <= 7.9f
         //    && cameraTarget.transform.position.x >= 9.5f && cameraTarget.transform.position.x <= 11.5f)

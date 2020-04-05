@@ -7,11 +7,24 @@ public class AudioManager : MonoBehaviour
     //this script was written by syed usman arif on 1st april 2020
 
     public Sound[] sounds; //reference to the class 'sound', this is an array - meaning that muliple audio clips can be added with options of volume and pitch
+    public static AudioManager instance;
 
 
     // Start is called before the first frame update
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+
         foreach (Sound s in sounds) //iterate through each element in the sounds array
         {
             // code below assings the audio source and their volume and pitch properties

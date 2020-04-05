@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class helppagecontroller : MonoBehaviour
 {
+    void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("madeby");
+    }
     // Update is called once per frame
     void Update()
     {
