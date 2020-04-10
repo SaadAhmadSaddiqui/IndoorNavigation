@@ -9,7 +9,7 @@ public class changescene : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            Application.Quit();
+            SceneManager.LoadScene("Menu");
         }
     }
     public void Initialize()
@@ -22,6 +22,14 @@ public class changescene : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("IndoorNav");
+        }
+    }
+    public void load_imageRec()
+    {
+        SceneManager.LoadScene("ImageRec");
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
         }
     }
 }
