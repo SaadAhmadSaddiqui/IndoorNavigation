@@ -25,6 +25,7 @@ namespace GoogleARCore.Examples.AugmentedImage
     using GoogleARCore;
     using UnityEngine;
     using UnityEngine.UI;
+    using UnityEngine.SceneManagement;
 
     /// <summary>
     /// Controller for AugmentedImage example.
@@ -40,6 +41,8 @@ namespace GoogleARCore.Examples.AugmentedImage
     /// </remarks>
     public class AugmentedImageExampleController : MonoBehaviour
     {
+        
+        
         /// <summary>
         /// A prefab for visualizing an AugmentedImage.
         /// </summary>
@@ -63,17 +66,20 @@ namespace GoogleARCore.Examples.AugmentedImage
             // Enable ARCore to target 60fps camera capture frame rate on supported devices.
             // Note, Application.targetFrameRate is ignored when QualitySettings.vSyncCount != 0.
             Application.targetFrameRate = 60;
+
         }
+
+        
 
         /// <summary>
         /// The Unity Update method.
         /// </summary>
         public void Update()
         {
-            // Exit the app when the 'back' button is pressed.
+            // Load the main menu when the 'back' button is pressed.
             if (Input.GetKey(KeyCode.Escape))
             {
-                Application.Quit();
+                SceneManager.LoadScene("Menu");
             }
 
             // Only allow the screen to sleep when not tracking.
@@ -96,7 +102,7 @@ namespace GoogleARCore.Examples.AugmentedImage
             {
                 AugmentedImageVisualizer visualizer = null;
                 m_Visualizers.TryGetValue(image.DatabaseIndex, out visualizer);
-                if (image.TrackingState == TrackingState.Tracking && visualizer == null)
+                if (image.TrackingState == TrackingState.Tracking && image.TrackingMethod == AugmentedImageTrackingMethod.FullTracking && visualizer == null)
                 {
                     // Create an anchor to ensure that ARCore keeps tracking this augmented image.
                     Anchor anchor = image.CreateAnchor(image.CenterPose);
@@ -123,6 +129,9 @@ namespace GoogleARCore.Examples.AugmentedImage
             }
 
             FitToScanOverlay.SetActive(true);
+           
         }
+
+        
     }
 }
