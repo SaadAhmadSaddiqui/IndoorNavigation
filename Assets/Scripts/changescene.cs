@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class changescene : MonoBehaviour
 {
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
@@ -14,7 +15,11 @@ public class changescene : MonoBehaviour
     }
     public void Initialize()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);     //this function loads the scene that is present next in the build queue of unity.
+        SceneManager.LoadScene("IndoorNav");
+    }
+    public void OpenHelpPageViewMap()
+    {
+        SceneManager.LoadScene("HelpPageMap");
     }
     public void Load_Helppage()
     {

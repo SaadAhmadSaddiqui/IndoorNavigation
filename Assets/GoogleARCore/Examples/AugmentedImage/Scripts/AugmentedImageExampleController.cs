@@ -41,6 +41,8 @@ namespace GoogleARCore.Examples.AugmentedImage
     /// </remarks>
     public class AugmentedImageExampleController : MonoBehaviour
     {
+        
+        
         /// <summary>
         /// A prefab for visualizing an AugmentedImage.
         /// </summary>
@@ -64,7 +66,10 @@ namespace GoogleARCore.Examples.AugmentedImage
             // Enable ARCore to target 60fps camera capture frame rate on supported devices.
             // Note, Application.targetFrameRate is ignored when QualitySettings.vSyncCount != 0.
             Application.targetFrameRate = 60;
+
         }
+
+        
 
         /// <summary>
         /// The Unity Update method.
@@ -126,9 +131,7 @@ namespace GoogleARCore.Examples.AugmentedImage
             FitToScanOverlay.SetActive(true);
            
         }
-        public void OpenHelpPage()
-        {
-            SceneManager.LoadScene("HelpPage");
-        }
+
+        
     }
 }
