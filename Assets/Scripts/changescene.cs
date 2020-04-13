@@ -5,24 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class changescene : MonoBehaviour
 {
-
     private void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
+            
             SceneManager.LoadScene("Menu");
         }
     }
     public void Initialize()
     {
+       
         SceneManager.LoadScene("IndoorNav");
     }
     public void OpenHelpPageViewMap()
     {
+        Handheld.Vibrate();
         SceneManager.LoadScene("HelpPageMap");
     }
     public void Load_Helppage()
     {
+        Handheld.Vibrate();
         SceneManager.LoadScene("HelpPage");
         if (Input.GetKeyDown(KeyCode.Escape))
         {

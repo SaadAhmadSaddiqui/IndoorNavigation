@@ -58,7 +58,6 @@ namespace GoogleARCore.Examples.AugmentedImage
         //public GameObject FrameUpperRight;
 
         public GameObject Floorplan;
-
         /// <summary>
         /// The Unity Update method.
         /// </summary>
@@ -73,7 +72,15 @@ namespace GoogleARCore.Examples.AugmentedImage
                 Floorplan.SetActive(false);
                 return;
             }
-            Floorplan.SetActive(true);
+            else
+            {
+                Floorplan.SetActive(true);
+            }
+            
+               
+                
+
+            
             //float halfWidth = Image.ExtentX / 2;
             //float halfHeight = Image.ExtentZ / 2;
             //FrameLowerLeft.transform.localPosition =
