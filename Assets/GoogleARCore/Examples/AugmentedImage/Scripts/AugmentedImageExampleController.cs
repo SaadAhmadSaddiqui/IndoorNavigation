@@ -69,7 +69,11 @@ namespace GoogleARCore.Examples.AugmentedImage
 
         }
 
-        
+        public void Start()
+        {
+            FindObjectOfType<AudioManager>().Play("scanbackcard");
+        }
+
 
         /// <summary>
         /// The Unity Update method.

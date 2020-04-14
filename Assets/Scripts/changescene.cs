@@ -15,7 +15,8 @@ public class changescene : MonoBehaviour
     }
     public void Initialize()
     {
-       
+
+        Handheld.Vibrate();
         SceneManager.LoadScene("IndoorNav");
     }
     public void OpenHelpPageViewMap()
@@ -34,6 +35,7 @@ public class changescene : MonoBehaviour
     }
     public void load_imageRec()
     {
+        Handheld.Vibrate();
         SceneManager.LoadScene("ImageRec");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
