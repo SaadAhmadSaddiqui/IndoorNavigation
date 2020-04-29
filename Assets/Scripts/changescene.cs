@@ -12,6 +12,15 @@ public class changescene : MonoBehaviour
             
             SceneManager.LoadScene("Menu");
         }
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Menu"))
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+
+                Application.Quit();
+            }
+
+        }
     }
     public void Initialize()
     {

@@ -42,7 +42,6 @@ namespace GoogleARCore.Examples.AugmentedImage
     public class AugmentedImageExampleController : MonoBehaviour
     {
         
-        
         /// <summary>
         /// A prefab for visualizing an AugmentedImage.
         /// </summary>
@@ -132,11 +131,7 @@ namespace GoogleARCore.Examples.AugmentedImage
                     return;
                 }
             }
-
             FitToScanOverlay.SetActive(true);
-           
         }
-
-        
     }
 }
