@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class RestClient : MonoBehaviour
+public class RestClient : MonoBehaviour // Singleton
 {
     private static RestClient _instance;
 
@@ -28,26 +28,27 @@ public class RestClient : MonoBehaviour
     /// <summary>
     /// Gets the names and locations for the Rooms in JSON from the database.
     /// </summary>
-    /// <param name="URL"></param>
+    /// <param name="URL">The URL to get the rooms list in JSON from.</param>
+    /// <param name="callBack">An Action delegate for the RoomGenerator.GenerateRooms(RoomList roomList)</param>
     /// <returns></returns>
     public IEnumerator Get(string URL, System.Action<RoomList> callBack)
     {
         using (UnityWebRequest request = UnityWebRequest.Get(URL))
         {
-            yield return request.SendWebRequest();
+            yield return request.SendWebRequest(); // Sends GET request to the Web API to grab the rooms list.
 
             if (request.isNetworkError)
             {
-                Debug.LogError(request.error);
+                Debug.LogError(request.error); // In case of an error, log the error.
             }
             else
             {
                 if (request.isDone)
                 {
-                    string jsonResult = System.Text.Encoding.UTF8.GetString(request.downloadHandler.data);
-                    jsonResult = "{\"rooms\":" + jsonResult + "}";
-                    RoomList roomsList = JsonUtility.FromJson<RoomList>(jsonResult);
-                    callBack(roomsList);
+                    string jsonResult = System.Text.Encoding.UTF8.GetString(request.downloadHandler.data); // Gets the Json form of the rooms list.
+                    jsonResult = "{\"rooms\":" + jsonResult + "}"; // Fixing Json for unity.
+                    RoomList roomsList = JsonUtility.FromJson<RoomList>(jsonResult); // Extracts rooms list from JSON.
+                    callBack(roomsList); // Calls RoomGenerator.GenerateRooms(RoomList roomList)
                 }
             }
         }
