@@ -770,6 +770,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Build: 1
     UNet: 1
   luminIcon:
     m_Name: 
@@ -783,10 +784,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 5cd2b5ea-f1b3-4e12-bebe-9ab55de723d3
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: ARMAN
+  organizationId: saad-truth
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

@@ -8,13 +8,14 @@ public class NavigationController : MonoBehaviour
 {
     public NavMeshAgent agent; // trigger to spawn and despawn AR arrows
     public GameObject trigger; // trigger to spawn and despawn AR arrows
-    public Transform[] destinations; // list of destination positions
+    public List<Transform> destinations; // list of destination positions
     public GameObject person; // person indicator
     //public GameObject cam; // camera indicator
     private NavMeshPath path; // current calculated path
     private LineRenderer line; // linerenderer to display path
     public Transform target; // current chosen destination
-    public Dropdown myDropdown;
+    public Dropdown myDropdown; // The dropdown box
+    public GameObject roomsParent; // gets the rooms parent object
     private bool destinationSet; // bool to say if a destination is set
 
     //create initial path, get linerenderer.
@@ -30,12 +31,23 @@ public class NavigationController : MonoBehaviour
         line.startColor = Color.green;
         line.endColor = Color.green;
         line.transform.position = line.transform.up * -1f;
-        PopulateDropdown(myDropdown, destinations);
+        Invoke("FillList", 1f);
+        StartCoroutine(PopulateDropdown(myDropdown, destinations, 2f));
+        ;
         //InvokeRepeating("CreateBreadCrumb", 2f, 1f);
     }
 
-    void PopulateDropdown(Dropdown dropdown, Transform[] optionsArray)
+    void FillList()
     {
+        foreach (Transform go in roomsParent.transform)
+        {
+            destinations.Add(go);
+        }
+    }
+
+    IEnumerator PopulateDropdown(Dropdown dropdown, List<Transform> optionsArray, float delay)
+    {
+        yield return new WaitForSeconds(delay);
         List<string> options = new List<string>();
         foreach (var option in optionsArray)
         {
