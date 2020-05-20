@@ -36,7 +36,6 @@ public class NavigationController : MonoBehaviour
         line.startColor = Color.green;
         line.endColor = Color.green;
         line.transform.position = line.transform.up * -1f;
-        Invoke("FillList", 2f);
         //InvokeRepeating("CreateBreadCrumb", 2f, 1f);
     }
 
