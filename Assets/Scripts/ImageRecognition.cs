@@ -91,6 +91,7 @@ public class ImageRecognition : MonoBehaviour
             {
                 person.transform.position = child.position;
                 Camera.main.transform.parent.transform.rotation = child.rotation;
+                Handheld.Vibrate();
                 break;
             }
         }
