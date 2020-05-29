@@ -95,8 +95,8 @@ public class UpdateNavigation : MonoBehaviour
             hasExited = true;
             Destroy(GameObject.Find("NavTrigger(Clone)"));
             Destroy(GameObject.Find("Anchor"));
-            GameObject.Instantiate(trigger, this.transform.position,
-                 this.transform.rotation);
+
+            GameObject.Instantiate(trigger, this.transform.position,this.transform.rotation);
         }
     }
 }

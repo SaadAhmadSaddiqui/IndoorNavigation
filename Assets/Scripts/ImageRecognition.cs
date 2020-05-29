@@ -21,13 +21,6 @@ public class ImageRecognition : MonoBehaviour
 
 
     // is used at start of application to set initial position
-
-
-    /// <summary>
-    /// Capture and scan the current frame 
-    /// </summary>
-    /// 
-
     void Update()
     {
         if (searchingForMarker)
@@ -35,7 +28,9 @@ public class ImageRecognition : MonoBehaviour
             Scan();
         }
     }
-
+    /// <summary>
+    /// Scans the barcode, grabs the text from it, and calls the Relocate method
+    /// </summary>
     public void Scan()
     {
         System.Action<byte[], int, int> callback = (bytes, width, height) =>
@@ -62,6 +57,11 @@ public class ImageRecognition : MonoBehaviour
         CaptureScreenAsync(callback);
     }
 
+    /// <summary>
+    /// Locates you for the initial positioning on start of navigation.
+    /// </summary>
+    /// <param name="wt"></param>
+    /// <returns></returns>
     public bool StartPosition(WebCamTexture wt)
     {
         bool succeeded = false;
@@ -70,21 +70,35 @@ public class ImageRecognition : MonoBehaviour
             IBarcodeReader barcodeReader = new BarcodeReader();
             // decode the current frame
             var result = barcodeReader.Decode(wt.GetPixels32(), wt.width, wt.height);
-            if (result != null)
+            foreach (Transform transform in calibrationLocations.transform)
             {
-                Relocate(result.Text);
-                succeeded = true;
-                FitToScanOverlay.SetActive(false);
+                if (!transform.name.Equals(result.Text))
+                {
+                    succeeded = false;
+                }
+                else if (transform.name.Equals(result.Text))
+                {
+                    Relocate(result.Text);
+                    succeeded = true;
+                    break;
+                }
             }
         }
-        catch (Exception ex) { Debug.LogWarning(ex.Message); }
+        catch (Exception ex) 
+        { 
+            Debug.LogWarning(ex.Message);
+        }
         return succeeded;
     }
-    // move to person indicator to the new spot
+
+    /// <summary>
+    /// Moves to person indicator to the new spot and re-adjusts the direction.
+    /// </summary>
+    /// <param name="text">The result text scanned from the QR code.</param>
     private void Relocate(string text)
     {
         text = text.Trim(); //remove spaces
-                            //find the correct location scanned and move the person to its position
+        //find the correct location scanned and move the person to its position
         foreach (Transform child in calibrationLocations.transform)
         {
             if (child.name.Equals(text))
@@ -92,25 +106,19 @@ public class ImageRecognition : MonoBehaviour
                 person.transform.position = child.position;
                 Camera.main.transform.parent.transform.rotation = child.rotation;
                 Handheld.Vibrate();
+                FitToScanOverlay2.SetActive(false);
+                searchingForMarker = false;
                 break;
             }
         }
-        FitToScanOverlay.SetActive(false);
-        FitToScanOverlay2.SetActive(false);
-        searchingForMarker = false;
     }
 
     /// <summary>
     /// Capture the screen using CameraImage.AcquireCameraImageBytes.
     /// </summary>
-    /// <param name="callback"></param>
+    /// <param name="callback">The process in Scan() is sent as a callback and then called here.</param>
     void CaptureScreenAsync(Action<byte[], int, int> callback)
     {
-
-        //Task.Run(() =>
-        //{
-            
-        //});
         byte[] imageByteArray = null;
         int width;
         int height;
@@ -132,11 +140,12 @@ public class ImageRecognition : MonoBehaviour
             width = imageBytes.Width;
             height = imageBytes.Height;
         }
-
         callback(imageByteArray, width, height);
     }
 
-    // handle scanmarker button click
+    /// <summary>
+    /// The method for the Scan Marker button.
+    /// </summary>
     public void onClick()
     {
         //counter++;
@@ -146,14 +155,14 @@ public class ImageRecognition : MonoBehaviour
             Debug.Log("Trued");
             searchingForMarker = true;
             //FitToScanOverlay.SetActive(true);
-            FitToScanOverlay.SetActive(true);
+            FitToScanOverlay2.SetActive(true);
             //first = true;
         }
         else if(searchingForMarker == true)
         {
             Debug.Log("Falsed");
             searchingForMarker = false;
-            FitToScanOverlay.SetActive(false);
+            FitToScanOverlay2.SetActive(false);
             //first = false;
         }
 
