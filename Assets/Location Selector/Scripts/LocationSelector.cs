@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using UnityEngine.EventSystems;
+=======
+>>>>>>> parent of b1b2283... Revert "Location Selector Added - Final Build (Hopefully)"
 =======
 >>>>>>> parent of b1b2283... Revert "Location Selector Added - Final Build (Hopefully)"
 
@@ -34,7 +37,11 @@ public class LocationSelector : MonoBehaviour
             worldPosition = hitData.point;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
+=======
+        if (Input.GetMouseButtonDown(0))
+>>>>>>> parent of b1b2283... Revert "Location Selector Added - Final Build (Hopefully)"
 =======
         if (Input.GetMouseButtonDown(0))
 >>>>>>> parent of b1b2283... Revert "Location Selector Added - Final Build (Hopefully)"
@@ -48,11 +55,14 @@ public class LocationSelector : MonoBehaviour
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     bool IsMouseOverUI()
     {
         return EventSystem.current.IsPointerOverGameObject();
     }
+=======
+>>>>>>> parent of b1b2283... Revert "Location Selector Added - Final Build (Hopefully)"
 =======
 >>>>>>> parent of b1b2283... Revert "Location Selector Added - Final Build (Hopefully)"
 }
