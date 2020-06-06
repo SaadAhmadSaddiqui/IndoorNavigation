@@ -4361,6 +4361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapPlane
       objectReference: {fileID: 0}
+    - target: {fileID: 2097515391652256157, guid: a33b6d6b2491f674a8426b896c9ae64a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a33b6d6b2491f674a8426b896c9ae64a, type: 3}
 --- !u!120 &2439749347941669344 stripped
@@ -4473,17 +4478,17 @@ PrefabInstance:
     - target: {fileID: 5181344094999465416, guid: 3f1d2a61b3acda64f8be09eb5006e06b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1797.9291
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5181344094999465416, guid: 3f1d2a61b3acda64f8be09eb5006e06b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.584076
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5181344094999465416, guid: 3f1d2a61b3acda64f8be09eb5006e06b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.982624
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5181344094999465416, guid: 3f1d2a61b3acda64f8be09eb5006e06b,
         type: 3}

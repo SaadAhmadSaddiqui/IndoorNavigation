@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/IndoorNav.unity
     guid: e7e0620e5ce2aeb4bad70d8b48298fe4
   - enabled: 1
-    path: Assets/Scenes/HelpPage.unity
-    guid: 342aefa511ac55d41bc7dae5ec4399c5
-  - enabled: 1
     path: Assets/Scenes/ImageRec.unity
     guid: 027c3c2870afd1f4bbc12940257bf79e
+  - enabled: 1
+    path: Assets/Scenes/HelpPage.unity
+    guid: 342aefa511ac55d41bc7dae5ec4399c5
   - enabled: 1
     path: Assets/Scenes/HelpPageMap.unity
     guid: dfe4551d8e358a446b09f00b47b8a989
