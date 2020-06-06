@@ -13,8 +13,6 @@ public class ImageRecognition : MonoBehaviour
     public GameObject person;
     public GameObject calibrationLocations;
     private bool searchingForMarker = true;
-    //private bool first = true;
-    //private int counter = 0;
     public GameObject FitToScanOverlay;
     public GameObject FitToScanOverlay2;
     public Text text; // start text

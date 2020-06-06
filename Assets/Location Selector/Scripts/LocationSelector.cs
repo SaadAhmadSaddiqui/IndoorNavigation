@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class LocationSelector : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class LocationSelector : MonoBehaviour
         {
             worldPosition = hitData.point;
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !IsMouseOverUI())
         {
             if (GameObject.Find("Cube(Clone)"))
             {
@@ -38,5 +39,10 @@ public class LocationSelector : MonoBehaviour
             Instantiate(cube, worldPosition, Quaternion.identity);
             posText.text = "X Position: " + worldPosition.x + "\nZ Position: " + worldPosition.z; 
         }
+    }
+
+    bool IsMouseOverUI()
+    {
+        return EventSystem.current.IsPointerOverGameObject();
     }
 }
